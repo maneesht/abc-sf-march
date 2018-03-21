@@ -1,6 +1,6 @@
 <div class="card">
   <ul class="collection">
-    <li *ngFor="let video of videoList" class="collection-item" [class.active]="isActive(video)">
+    <li *ngFor="let video of (videoList | async)" class="collection-item" [class.active]="isActive(video)">
       <abc-video-display (click)="setHighlight(video)" [video]="video"></abc-video-display>
     </li>
   </ul>

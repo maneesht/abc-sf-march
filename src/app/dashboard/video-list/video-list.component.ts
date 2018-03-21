@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Video } from '../../models/video.interface';
 import { HttpClient } from '@angular/common/http';
+import { VideoDataService } from '../video-data.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'abc-video-list',
@@ -9,9 +11,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VideoListComponent implements OnInit {
   @Output() selectedVideo = new EventEmitter<Video>();
-  videoList = [];
+  videoList: Observable<Video[]>;
   currentVideo;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private videoDataService: VideoDataService) { }
   isActive(video) {
     return this.currentVideo === video; //moved to a function for unit testability purposes
   }
@@ -25,8 +27,7 @@ export class VideoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<Video[]>('https://api.angularbootcamp.com/videos')
-      .subscribe(videos => this.videoList = videos);
+    this.videoList = this.videoDataService.getData();
   }
 
 }
