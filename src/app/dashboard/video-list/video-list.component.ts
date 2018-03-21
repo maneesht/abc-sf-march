@@ -9,6 +9,9 @@ export class VideoListComponent implements OnInit {
   videoList = videoData;
   currentVideo;
   constructor() { }
+  isActive(video) {
+    return this.currentVideo === video; //moved to a function for unit testability purposes
+  }
   setHighlight(video) {
     if(this.currentVideo === video) {
       this.currentVideo = undefined;

@@ -1,8 +1,8 @@
-<ul *ngFor="let video of videoList">
-  <div class="card" [class.darken-1]="currentVideo === video" [class.blue-grey]="currentVideo === video" (click)="setHighlight(video)">
-    <div class="card-content" [class.white-text]="currentVideo === video">
-      <span class="card-title">{{video.title}}</span>
-      <p>Author: {{video.author}}</p>
-    </div>
-  </div>
-</ul>
+<div class="card">
+  <ul class="collection">
+    <li *ngFor="let video of videoList" class="collection-item" [class.active]="isActive(video)">
+      <abc-video-display (click)="setHighlight(video)" [video]="video"></abc-video-display>
+    </li>
+  </ul>
+</div>
+
