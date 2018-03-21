@@ -1,5 +1,9 @@
 # WorkshopApp
 
+Project Intended for Angular Bootcamp San Francisco Class March 19-21, 2018.
+
+[StackBlitz Demo](https://stackblitz.com/github/maneesht/abc-sf-march)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
 ## Development server
